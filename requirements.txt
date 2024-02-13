@@ -4,5 +4,3 @@ matplotlib
 streamlit
 skyfield
 pytz
-math
-datetime
