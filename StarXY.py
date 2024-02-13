@@ -16,6 +16,8 @@ from skyfield.api import load, Star, wgs84, N, S, W, E
 from skyfield.data import hipparcos, stellarium
 from skyfield.magnitudelib import planetary_magnitude
 from skyfield.projections import build_stereographic_projection
+from matplotlib import font_manager
+
 
 ###
 '''Changable params'''
@@ -79,10 +81,10 @@ for line in [line_1,line_2,line_3]:
         line_list.append(line)
 
 # Set path to save images.
-parent = '/Users/hazze/Documents/Python Scripts/StarMap/CreatedMaps'
+parent = "C:/Users/Sarthak Aggarwal/OneDrive/Desktop/LunaLens/abc"
 path_to_save = os.path.join(parent, occasion)
 if not os.path.exists(path_to_save):
-    os.makedirs(path_to_save)
+    os.mkdir(path_to_save)
 
 # Set the time of the map
 GMT = timezone('Europe/London')
@@ -102,7 +104,7 @@ planets = ['mercury','venus','mars','jupiter','saturn','uranus','neptune']
 ap_colours = ['saddlebrown','darkgoldenrod','darkred','beige','tan','powderblue','mediumblue']
 eph = load('de421.bsp')
 earth = eph['earth']
-planet_df = Pd.DataFrame(ap_colours,index=planets,columns=['colours'])
+planet_df = pd.DataFrame(ap_colours,index=planets,columns=['colours'])
 
 
 # Load Star catalogue
@@ -175,8 +177,8 @@ for planet in planets:
     planet_magnitude.append(float(planetary_magnitude(planet_data)))
     
     planet_xy.append(projection(planet_data))
-planet_df = planet_df.join(Pd.DataFrame(planet_xy,columns=['X','Y'],index=planets))
-planet_df = planet_df.join(Pd.DataFrame(planet_magnitude,columns=['magnitude'],index=planets))
+planet_df = planet_df.join(pd.DataFrame(planet_xy,columns=['X','Y'],index=planets))
+planet_df = planet_df.join(pd.DataFrame(planet_magnitude,columns=['magnitude'],index=planets))
 
 
 # Filter df by star magnitude.

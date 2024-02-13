@@ -13,7 +13,7 @@ from pytz import timezone
 
 # Changeable params
 # Date/time
-ye = 1959
+ye = 2023
 mo = 5
 da = 12
 ho = 1
@@ -28,7 +28,7 @@ long = 18.420075
 west_east = E
 
 # time `t` we use for everything else.
-GMT = timezone('Europe/London')
+GMT = timezone('Asia/kolkata')
 ts = load.timescale()
 t = ts.from_datetime(GMT.localize(datetime(ye, mo, da, ho, mi, se)))
 # 180 = South 0 = North
@@ -116,12 +116,12 @@ constellations = LineCollection(generate_constellation_lines(consdata),
 ax.add_collection(constellations)
 
 # adds constellation name to first star in cons list
-for row in consdata:
-    name = row[0]
-    hip = row[1][0][0]
-    if hip in bright_stars.index:
-        bsrow = bright_stars.loc[[hip]]
-        ax.text(bsrow['az'], bsrow['alt'], str(name), c='white', fontsize=9, weight='bold', ha='center')
+# for row in consdata:
+#     name = row[0]
+#     hip = row[1][0][0]
+#     if hip in bright_stars.index:
+#         bsrow = bright_stars.loc[[hip]]
+#         ax.text(bsrow['az'], bsrow['alt'], str(name), c='white', fontsize=9, weight='bold', ha='center')
 
 ax.set_theta_zero_location("N")
 ax.set_theta_direction(1)
