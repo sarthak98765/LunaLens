@@ -40,13 +40,3 @@ LunaLens is a Python-based project that generates a sky map for a specific date,
 | `background_colour`  | Background color of the sky map (`black`, `blue`, `grey`, etc.).          |
 
 ---
-
-## 📂 File Structure
-
-```bash
-LunaLens/
-├── data/                  # Star and constellation data
-├── fonts/                 # Fonts for annotations
-├── images/                # Output sky maps
-├── lunalens.py            # Main script
-└── README.md              # Project documentation
